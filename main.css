@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    color: #e6ffa8;
+}
+
+#container {
+    position: absolute;
+}
+
+#left-sidebar {
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    z-index: 100;
+    border-radius: 10px;
+    background-color: beige;
+    padding: 10px;
+}
+
+#left-sidebar .left-menuitem {
+    cursor: pointer;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+    color: darkslategray;
+}
+
+#left-sidebar .left-menuitem + .left-menuitem {
+    margin-top: 10px;
+}
+
+#left-sidebar #menu-1:before { content: '1'; }
+#left-sidebar:hover #menu-1:before { content: 'stars'; }
+
+#left-sidebar #menu-2:before { content: '2'; }
+#left-sidebar:hover #menu-2:before { content: 'snapping'; }
+
+#left-sidebar #menu-3:before { content: '3'; }
+#left-sidebar:hover #menu-3:before { content: 'connected'; }
+
+#left-sidebar #menu-4:before { content: '4'; }
+#left-sidebar:hover #menu-4:before { content: 'anchor'; }
+
+#left-sidebar #menu-5:before { content: '5'; }
+#left-sidebar:hover #menu-5:before { content: 'collision'; }
+
+#left-sidebar #menu-6:before { content: '6'; }
+#left-sidebar:hover #menu-6:before { content: 'scale board'; }
+
+#left-sidebar #menu-7:before { content: '7'; }
+#left-sidebar:hover #menu-7:before { content: 'edit text'; }
+
+#left-sidebar #menu-8:before { content: '8'; }
+#left-sidebar:hover #menu-8:before { content: '20000 nodes'; }
