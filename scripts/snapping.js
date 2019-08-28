@@ -1,16 +1,17 @@
 stage = new Konva.Stage({
     container: 'container',
     width: width,
-    height: height
+    height: height,
+    draggable: true
 });
 
 layer = new Konva.Layer();
 stage.add(layer);
 
 // first generate random rectangles
-for (let i = 0; i < 5; i++) {
-    layer.add(
-        new Konva.Rect({
+if (snapping == null) {
+    for (let i = 0; i < 5; i++) {
+        let rect = new Konva.Rect({
             x: Math.random() * stage.width(),
             y: Math.random() * stage.height(),
             width: 150 + Math.random() * 50,
@@ -19,8 +20,36 @@ for (let i = 0; i < 5; i++) {
             draggable: true,
             name: 'object'
         })
-    );
+        layer.add(rect);
+    }
+    snapping = layer;
+} else {
+    stage.add(snapping);
 }
+
+document.getElementById("create").addEventListener("click", function () {
+    createStatus = true;
+    document.getElementById("top-menu").classList.add("selected");
+});
+
+stage.on("click", function (e) {
+    if (createStatus) {
+        layer.add(
+            new Konva.Rect({
+                x: e.evt.clientX,
+                y: e.evt.clientY,
+                width: 222,
+                height: 222,
+                fill: Konva.Util.getRandomColor(),
+                draggable: true,
+                name: 'object'
+            })
+        );
+        layer.draw();
+    }
+    createStatus = false;
+    document.getElementById("top-menu").classList.remove("selected");
+});
 
 // were can we snap our objects?
 function getLineGuideStops(skipShape) {

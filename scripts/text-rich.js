@@ -53,7 +53,8 @@ var height = window.innerHeight;
 var stage = new Konva.Stage({
     container: 'container',
     width: width,
-    height: height
+    height: height,
+    draggable: true
 });
 
 const layer = new Konva.Layer();

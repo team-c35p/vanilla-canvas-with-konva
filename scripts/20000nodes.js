@@ -2,7 +2,7 @@ function addNode(obj, layer) {
     let node = new Konva.Circle({
         x: obj.x,
         y: obj.y,
-        radius: 4,
+        radius: 8,
         fill: obj.color,
         id: obj.id
     });
@@ -53,7 +53,7 @@ tooltipLayer.add(tooltip);
 // build data
 data = [];
 colors = ['lightcoral', '#b98eff', 'palevioletred', '#ffb680', '#a1ccff', '#9fcd00'];
-for (let n = 0; n < 20000; n++) {
+for (let n = 0; n < 15000; n++) {
     let x = Math.random() * width;
     let y = Math.random() * 300 + height/2 - 150;
     data.push({

@@ -1,12 +1,16 @@
-body {
+body, canvas {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: scroll;
     position: absolute;
     width: 100vw;
     height: 100vh;
     background-color: #fff;
     color: #e6ffa8;
+}
+
+#stage-parent {
+    width: 100%;
 }
 
 #container {
@@ -15,7 +19,9 @@ body {
 
 #left-sidebar {
     position: fixed;
-    top: 100px;
+    min-width: 32px;
+    text-align: left;
+    top: 10px;
     left: 10px;
     z-index: 100;
     border-radius: 10px;
@@ -35,26 +41,33 @@ body {
     margin-top: 10px;
 }
 
-#left-sidebar #menu-1:before { content: '1'; }
-#left-sidebar:hover #menu-1:before { content: 'stars'; }
+#left-sidebar #menu-1:before { content: 'stars'; }
+#left-sidebar #menu-2:before { content: 'snapping'; }
+#left-sidebar #menu-3:before { content: 'connected'; }
+#left-sidebar #menu-4:before { content: 'anchor'; }
+#left-sidebar #menu-5:before { content: 'collision'; }
+#left-sidebar #menu-6:before { content: 'scaleboard'; }
+#left-sidebar #menu-7:before { content: 'edit text'; }
+#left-sidebar #menu-8:before { content: '15k nodes'; }
 
-#left-sidebar #menu-2:before { content: '2'; }
-#left-sidebar:hover #menu-2:before { content: 'snapping'; }
+#top-menu {
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    background-color: #ffdee7;
+    border-radius: 10px;
+    padding: 10px;
+    height: 28px;
+    line-height: 32px;
+    display: flex;
+}
 
-#left-sidebar #menu-3:before { content: '3'; }
-#left-sidebar:hover #menu-3:before { content: 'connected'; }
+#top-menu .top-menuitem {
+    color: darkslategray;
+    font-size: 24px;
+    cursor: pointer;
+}
 
-#left-sidebar #menu-4:before { content: '4'; }
-#left-sidebar:hover #menu-4:before { content: 'anchor'; }
-
-#left-sidebar #menu-5:before { content: '5'; }
-#left-sidebar:hover #menu-5:before { content: 'collision'; }
-
-#left-sidebar #menu-6:before { content: '6'; }
-#left-sidebar:hover #menu-6:before { content: 'scale board'; }
-
-#left-sidebar #menu-7:before { content: '7'; }
-#left-sidebar:hover #menu-7:before { content: 'edit text'; }
-
-#left-sidebar #menu-8:before { content: '8'; }
-#left-sidebar:hover #menu-8:before { content: '20000 nodes'; }
+#top-menu.selected {
+    background-color: #ffb5dc;
+}

@@ -32,7 +32,8 @@ function addStar(layer, stage) {
 stage = new Konva.Stage({
     container: 'container',
     width: width,
-    height: height
+    height: height,
+    draggable: true
 });
 
 layer = new Konva.Layer();

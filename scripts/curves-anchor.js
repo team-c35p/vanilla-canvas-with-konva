@@ -1,3 +1,5 @@
+colors = [Konva.Util.getRandomColor(), Konva.Util.getRandomColor()];
+
 function updateDottedLines() {
     let q = quad;
     let b = bezier;
@@ -26,26 +28,27 @@ function updateDottedLines() {
     ]);
     lineLayer.draw();
 }
+
 function buildAnchor(x, y) {
     let anchor = new Konva.Circle({
         x: x,
         y: y,
-        radius: 20,
-        stroke: '#666',
-        fill: '#ddd',
-        strokeWidth: 2,
+        radius: 6,
+        stroke: '#999',
+        fill: '#fff',
+        strokeWidth: 1,
         draggable: true
     });
 
     // add hover styling
     anchor.on('mouseover', function() {
         document.body.style.cursor = 'pointer';
-        this.strokeWidth(4);
+        this.strokeWidth(1);
         anchorLayer.draw();
     });
     anchor.on('mouseout', function() {
         document.body.style.cursor = 'default';
-        this.strokeWidth(2);
+        this.strokeWidth(1);
         anchorLayer.draw();
     });
 
@@ -71,7 +74,7 @@ function drawCurves() {
         quad.end.attrs.x,
         quad.end.attrs.y
     );
-    context.setAttr('strokeStyle', 'red');
+    context.setAttr('strokeStyle', colors[0]);
     context.setAttr('lineWidth', 4);
     context.stroke();
 
@@ -86,7 +89,7 @@ function drawCurves() {
         bezier.end.attrs.x,
         bezier.end.attrs.y
     );
-    context.setAttr('strokeStyle', 'blue');
+    context.setAttr('strokeStyle', colors[1]);
     context.setAttr('lineWidth', 4);
     context.stroke();
 }
@@ -94,7 +97,8 @@ function drawCurves() {
 stage = new Konva.Stage({
     container: 'container',
     width: width,
-    height: height
+    height: height,
+    draggable: true
 });
 
 anchorLayer = new Konva.Layer();
@@ -105,8 +109,8 @@ lineLayer = new Konva.Layer();
 curveLayer = new Konva.Layer();
 
 quadLine = new Konva.Line({
-    dash: [10, 10, 0, 10],
-    strokeWidth: 3,
+    dash: [4, 4],
+    strokeWidth: 1,
     stroke: 'black',
     lineCap: 'round',
     id: 'quadLine',
@@ -115,8 +119,8 @@ quadLine = new Konva.Line({
 });
 
 bezierLine = new Konva.Line({
-    dash: [10, 10, 0, 10],
-    strokeWidth: 3,
+    dash: [4, 4, 2, 4],
+    strokeWidth: 1,
     stroke: 'black',
     lineCap: 'round',
     id: 'bezierLine',

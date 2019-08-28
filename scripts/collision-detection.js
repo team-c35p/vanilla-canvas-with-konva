@@ -1,12 +1,13 @@
 stage = new Konva.Stage({
     container: 'container',
     width: width,
-    height: height
+    height: height,
+    draggable: true
 });
 
 layer = new Konva.Layer();
 stage.add(layer);
-randomColor = Konva.Util.getRandomColor();
+colors = Konva.Util.getRandomColor();
 
 function createShape() {
     let group = new Konva.Group({
@@ -48,7 +49,7 @@ layer.on('dragmove', function(e) {
             return;
         }
         if (haveIntersection(group.getClientRect(), targetRect)) {
-            group.findOne('.fillShape').fill(randomColor);
+            group.findOne('.fillShape').fill(colors);
         } else {
             group.findOne('.fillShape').fill('black');
         }
