@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'JENKINS_TEST_NODE'
+      label 'master'
     }
   }
 
