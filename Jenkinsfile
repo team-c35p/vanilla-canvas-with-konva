@@ -14,7 +14,7 @@ pipeline {
 
     stage('Build & Test') {
       steps {
-        sh 'echo test build'
+        sh 'echo hello first build'
       }
     }
   }
